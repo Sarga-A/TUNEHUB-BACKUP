@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DISPLAY PLAYLIST</title>
+<link rel="stylesheet" type="text/css" th:href="@{/displayplalists.css}">
+</head>
+<body>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="playlist : ${playlist}">
+				<td th:text="${playlist.id}"></td>
+
+				<td>
+					<ul>
+						<li th:each="song :${playlist.songs}">
+						 <span th:text="${song.name}"></span>
+						  <audio controls>
+								<source th:src="${song.link}">
+							</audio>
+						</li>
+					</ul>
+				</td>
+				
+				
+	</table>
+
+
+</body>
+</html>
